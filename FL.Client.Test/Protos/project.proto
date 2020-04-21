@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option csharp_namespace = "FL.ProjectService";
+import "google/protobuf/empty.proto";
+
+package project;
+
+// The greeting service definition.
+service Project {
+  // Sends a greeting
+  rpc Get (ProjectRequest) returns (ProjectModel);
+    rpc List (google.protobuf.Empty) returns (ProjectList);
+}
+
+// The request message containing the user's name.
+message ProjectRequest {
+  int32 id = 1;
+}
+
+// The response message containing the greetings.
+message ProjectModel {
+  string name = 1;
+  string code = 2;
+}
+
+message ProjectList
+{
+    repeated  ProjectModel Project=1;
+}
