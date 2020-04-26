@@ -31,7 +31,7 @@ namespace FL.KpiService
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGrpcService<GreeterService>();
+                endpoints.MapGrpcService<KpiService>();
 
                 endpoints.MapGet("/", async context =>
                 {

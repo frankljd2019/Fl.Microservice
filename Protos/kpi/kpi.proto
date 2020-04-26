@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+option csharp_namespace = "FL.KpiService";
+import "google/protobuf/empty.proto";
+
+package kpi;
+
+
+service Kpi {
+
+  rpc Get (KpiRequest) returns (KpiModel);
+  rpc PagedList (KpiPagedRequest) returns (KpiList);
+}
+
+
+message KpiRequest {
+  int32 id = 1;
+}
+
+message KpiPagedRequest{
+  int32 pageIndex=1;
+  int32 pageSize=2;
+}
+
+
+message KpiModel {
+  string name = 1;
+  KpiStatus status = 2;
+}
+
+message KpiList {
+    repeated  KpiModel Kpi=1;
+}
+
+enum KpiStatus {
+  High=0;
+  Medium=1;
+  Low=2;
+}
+

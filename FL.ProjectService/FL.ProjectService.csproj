@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -10,10 +10,12 @@
 
   <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.24.0" />
+    <PackageReference Include="Grpc.HealthCheck" Version="2.28.1" />
+    <PackageReference Include="NConsul.AspNetCore" Version="0.7.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <Protobuf Include="Protos\project.proto" GrpcServices="Server" />
+    <Protobuf Include="..\Protos\project\*.proto" GrpcServices="Server" Link="Protos\%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 
 </Project>
